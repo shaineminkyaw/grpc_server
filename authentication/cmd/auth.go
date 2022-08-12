@@ -2,7 +2,8 @@ package main
 
 import (
 	"fmt"
-	"grpc_basic/authentication/grpc"
+
+	"github.com/shaineminkyaw/grpc_server/authentication/grpc"
 )
 
 func main() {

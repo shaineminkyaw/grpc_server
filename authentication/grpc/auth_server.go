@@ -3,15 +3,15 @@ package grpc
 import (
 	"context"
 	"crypto/tls"
-	"grpc_basic/authentication/config"
-	"grpc_basic/authentication/ds"
-	"grpc_basic/pb"
 
 	"log"
 	"net"
 	"net/http"
 
 	"github.com/grpc-ecosystem/grpc-gateway/v2/runtime"
+	"github.com/shaineminkyaw/grpc_server/authentication/config"
+	"github.com/shaineminkyaw/grpc_server/authentication/ds"
+	"github.com/shaineminkyaw/grpc_server/pb"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials"
 	"google.golang.org/grpc/reflection"

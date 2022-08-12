@@ -5,8 +5,7 @@ import (
 	"crypto/rsa"
 	"encoding/hex"
 	"fmt"
-	"grpc_basic/authentication/ds"
-	"grpc_basic/authentication/model"
+
 	"log"
 	"strconv"
 	"strings"
@@ -14,6 +13,8 @@ import (
 
 	"github.com/dgrijalva/jwt-go"
 	"github.com/google/uuid"
+	"github.com/shaineminkyaw/grpc_server/authentication/ds"
+	"github.com/shaineminkyaw/grpc_server/authentication/model"
 	"golang.org/x/crypto/scrypt"
 	"gorm.io/gorm"
 )

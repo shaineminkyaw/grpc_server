@@ -1,9 +1,9 @@
 package grpc
 
 import (
-	model "grpc_basic/authentication/model"
-	"grpc_basic/pb"
+	model "github.com/shaineminkyaw/grpc_server/authentication/model"
 
+	"github.com/shaineminkyaw/grpc_server/pb"
 	"google.golang.org/protobuf/types/known/timestamppb"
 )
 

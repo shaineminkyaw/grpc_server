@@ -2,10 +2,11 @@ package ds
 
 import (
 	"fmt"
-	"grpc_basic/authentication/config"
-	model "grpc_basic/authentication/model"
+
 	"log"
 
+	"github.com/shaineminkyaw/grpc_server/authentication/config"
+	"github.com/shaineminkyaw/grpc_server/authentication/model"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 )

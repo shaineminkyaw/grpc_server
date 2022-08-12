@@ -1,12 +1,12 @@
 package grpc
 
 import (
-	model "grpc_basic/authentication/model"
-	"grpc_basic/authentication/util"
-	"grpc_basic/pb"
 	"time"
 
 	"github.com/mazen160/go-random"
+	model "github.com/shaineminkyaw/grpc_server/authentication/model"
+	"github.com/shaineminkyaw/grpc_server/authentication/util"
+	"github.com/shaineminkyaw/grpc_server/pb"
 	"google.golang.org/protobuf/types/known/timestamppb"
 	"gorm.io/gorm"
 )

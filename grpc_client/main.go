@@ -5,11 +5,12 @@ import (
 	"crypto/tls"
 	"crypto/x509"
 	"fmt"
-	"grpc_basic/pb"
+
 	"io"
 	"io/ioutil"
 	"log"
 
+	"github.com/shaineminkyaw/grpc_server/pb"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials"
 )

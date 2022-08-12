@@ -3,12 +3,12 @@ package grpc
 import (
 	"context"
 	"fmt"
-	model "grpc_basic/authentication/model"
-	"grpc_basic/pb"
 
 	"math/rand"
 	"time"
 
+	model "github.com/shaineminkyaw/grpc_server/authentication/model"
+	"github.com/shaineminkyaw/grpc_server/pb"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 	"gorm.io/gorm"
