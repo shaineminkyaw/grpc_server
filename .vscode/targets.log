@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Fri Aug 12 11:45:14 2022
+# Make data base, printed on Fri Aug 12 18:07:08 2022
 
 # Variables
 
@@ -14,6 +14,8 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 GDK_BACKEND = x11
 # environment
 LC_ALL = C
+# environment
+NO_AT_BRIDGE = 1
 # environment
 GNOME_SHELL_SESSION_MODE = ubuntu
 # environment
@@ -103,7 +105,7 @@ SNAP_REEXEC =
 # automatic
 @F = $(notdir $@)
 # environment
-VSCODE_PID = 8620
+VSCODE_PID = 28652
 # environment
 XDG_SESSION_TYPE = wayland
 # automatic
@@ -139,7 +141,7 @@ XMODIFIERS = @im=ibus
 # environment
 SHLVL = 1
 # environment
-GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/6d6bf8c8_c83e_4dd6_be1e_6eda95110794
+GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/08748103_06e2_40c7_913a_38835ab3e5b6
 # environment
 MAKELEVEL := 0
 # default
@@ -276,15 +278,15 @@ ALL_PROXY = socks://192.168.10.199:7890/
 XDG_MENU_PREFIX = gnome-
 # environment
 GDMSESSION = ubuntu
- 
-make: *** No rule to make target 'all'.  Stop.
-
 # environment
 LC_IDENTIFICATION = my_MM
 # environment
 SNAP_LIBRARY_PATH = /var/lib/snapd/lib/gl:/var/lib/snapd/lib/gl32:/var/lib/snapd/void
 # variable set hash-table stats:
-# Load=135/1024=13%, Rehash=0, Collisions=11/165=7%
+ 
+make: *** No rule to make target 'all'.  Stop.
+
+# Load=136/1024=13%, Rehash=0, Collisions=11/166=7%
 
 # Pattern-specific Variable Values
 
@@ -292,9 +294,9 @@ SNAP_LIBRARY_PATH = /var/lib/snapd/lib/gl:/var/lib/snapd/lib/gl32:/var/lib/snapd
 
 # Directories
 
-# . (device 2050, inode 2757140): 11 files, no impossibilities.
+# . (device 2050, inode 2757140): 16 files, no impossibilities.
 
-# 11 files, no impossibilities in 1 directories.
+# 16 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -314,10 +316,18 @@ proto:
     --grpc-gateway_out=./pb/  --grpc-gateway_opt=paths=source_relative \
     ./authentication/proto/*.proto
 
+cert:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 14):
+	./cert/gen.sh
+
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-08-11 14:50:29.801517451
+#  Last modified 2022-08-12 14:43:46.158287502
 #  File has been updated.
 #  Successfully updated.
 
@@ -350,25 +360,25 @@ all:
 #  File does not exist.
 #  File has not been updated.
 
-.PHONY: proto server evans
+.PHONY: proto server evans cert
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
 
 # files hash-table stats:
-# Load=8/1024=1%, Rehash=0, Collisions=0/21=0%
+# Load=9/1024=1%, Rehash=0, Collisions=0/23=0%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 20 / storage = 158 B / avg = 7 B
-# current buf: size = 8162 B / used = 158 B / count = 20 / avg = 7 B
+# strcache buffers: 1 (0) / strings = 25 / storage = 206 B / avg = 8 B
+# current buf: size = 8162 B / used = 206 B / count = 25 / avg = 8 B
 
-# strcache performance: lookups = 31 / hit rate = 35%
+# strcache performance: lookups = 39 / hit rate = 35%
 # hash-table stats:
-# Load=20/8192=0%, Rehash=0, Collisions=0/31=0%
-# Finished Make data base on Fri Aug 12 11:45:14 2022
+# Load=25/8192=0%, Rehash=0, Collisions=0/39=0%
+# Finished Make data base on Fri Aug 12 18:07:08 2022
 
  
