@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+
+
+package pb;
+
+import "google/api/annotations.proto";
+import "getVerifyCode.proto";
+import "rpc_user_register.proto";
+
+
+option go_package = "grpc_basic/pb";
+
+
+
+service UserService {
+    //verify Code
+    rpc GetVerifyCode(RequestVerifyCode) returns (ResponseVerifyCode) {
+        option (google.api.http) = {
+            post: "/v1/verifyCode"
+            body: "*"
+        };
+    };
+    // rpc GetVerifyCodeServerStream(RequestVerifyCodeList) returns (stream ResponseVerifyCodeList) {
+    //     option (google.api.http) = {
+    //         post: "/v1/verifyCodes"
+    //         body: "*"
+    //     };
+    // };
+    
+    //User register
+    rpc UserRegister(RequestUserList) returns (stream ResponseUserList) {
+        option (google.api.http) = {
+            post: "/v1/user_register"
+            body: "*"
+        };
+    };
+    rpc UserRegisterServerStream(RequestUserList) returns (stream ResponseUserList){};
+}

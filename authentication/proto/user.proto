@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+
+import "google/protobuf/timestamp.proto";
+
+package pb;
+
+option go_package = "grpc_basic/pb";
+
+
+message User {
+    uint64 Id =1;
+    string email =2;
+    string username =3 ;
+    string password =4;
+    string phone_number = 5;
+    string nation_id = 6;
+    string city =7;
+    string bankcard =8;
+    string currency =9;
+    float balance =10;
+    int32 gender_type =11;
+    string register_ip =12;
+    string last_login_ip =13;
+    google.protobuf.Timestamp created_at =14;
+    google.protobuf.Timestamp deleted_at =15;
+
+}
+

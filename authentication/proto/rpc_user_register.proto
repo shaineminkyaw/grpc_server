@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+
+package pb;
+import "google/protobuf/timestamp.proto";
+import "user.proto";
+
+option go_package = "grpc_basic/pb";
+
+
+message RequestUser {
+    string email =1;
+    string password =2;
+    string verifyCode =3;
+    string nation_id =4;
+    uint32 gender_type =5;
+    string city =6;
+}
+
+message ResponseUser {
+    User user =1;
+    google.protobuf.Timestamp created_at=2;
+}
+
+message RequestUserList {
+    repeated RequestUser request_data =1;
+}
+
+message ResponseUserList {
+    repeated ResponseUser response_data =1;
+}

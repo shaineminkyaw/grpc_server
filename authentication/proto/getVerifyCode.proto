@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+
+package pb;
+
+
+option go_package = "grpc_basic/pb";
+
+
+message RequestVerifyCode {
+    string email=1;
+}
+
+
+message ResponseVerifyCode {
+    string code=1;
+}
+
+
+message RequestVerifyCodeList {
+    repeated RequestVerifyCode requestData =1;
+}
+
+message ResponseVerifyCodeList {
+    repeated ResponseVerifyCode responseData =1;
+}
+
+
+
