@@ -25,8 +25,7 @@ type UserServiceClient interface {
 	//verify Code
 	GetVerifyCode(ctx context.Context, in *RequestVerifyCode, opts ...grpc.CallOption) (*ResponseVerifyCode, error)
 	//User register
-	UserRegister(ctx context.Context, in *RequestUserList, opts ...grpc.CallOption) (UserService_UserRegisterClient, error)
-	UserRegisterServerStream(ctx context.Context, in *RequestUserList, opts ...grpc.CallOption) (UserService_UserRegisterServerStreamClient, error)
+	UserRegister(ctx context.Context, in *RequestUser, opts ...grpc.CallOption) (*ResponseUser, error)
 }
 
 type userServiceClient struct {
@@ -46,68 +45,13 @@ func (c *userServiceClient) GetVerifyCode(ctx context.Context, in *RequestVerify
 	return out, nil
 }
 
-func (c *userServiceClient) UserRegister(ctx context.Context, in *RequestUserList, opts ...grpc.CallOption) (UserService_UserRegisterClient, error) {
-	stream, err := c.cc.NewStream(ctx, &UserService_ServiceDesc.Streams[0], "/pb.UserService/UserRegister", opts...)
+func (c *userServiceClient) UserRegister(ctx context.Context, in *RequestUser, opts ...grpc.CallOption) (*ResponseUser, error) {
+	out := new(ResponseUser)
+	err := c.cc.Invoke(ctx, "/pb.UserService/UserRegister", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
-	x := &userServiceUserRegisterClient{stream}
-	if err := x.ClientStream.SendMsg(in); err != nil {
-		return nil, err
-	}
-	if err := x.ClientStream.CloseSend(); err != nil {
-		return nil, err
-	}
-	return x, nil
-}
-
-type UserService_UserRegisterClient interface {
-	Recv() (*ResponseUserList, error)
-	grpc.ClientStream
-}
-
-type userServiceUserRegisterClient struct {
-	grpc.ClientStream
-}
-
-func (x *userServiceUserRegisterClient) Recv() (*ResponseUserList, error) {
-	m := new(ResponseUserList)
-	if err := x.ClientStream.RecvMsg(m); err != nil {
-		return nil, err
-	}
-	return m, nil
-}
-
-func (c *userServiceClient) UserRegisterServerStream(ctx context.Context, in *RequestUserList, opts ...grpc.CallOption) (UserService_UserRegisterServerStreamClient, error) {
-	stream, err := c.cc.NewStream(ctx, &UserService_ServiceDesc.Streams[1], "/pb.UserService/UserRegisterServerStream", opts...)
-	if err != nil {
-		return nil, err
-	}
-	x := &userServiceUserRegisterServerStreamClient{stream}
-	if err := x.ClientStream.SendMsg(in); err != nil {
-		return nil, err
-	}
-	if err := x.ClientStream.CloseSend(); err != nil {
-		return nil, err
-	}
-	return x, nil
-}
-
-type UserService_UserRegisterServerStreamClient interface {
-	Recv() (*ResponseUserList, error)
-	grpc.ClientStream
-}
-
-type userServiceUserRegisterServerStreamClient struct {
-	grpc.ClientStream
-}
-
-func (x *userServiceUserRegisterServerStreamClient) Recv() (*ResponseUserList, error) {
-	m := new(ResponseUserList)
-	if err := x.ClientStream.RecvMsg(m); err != nil {
-		return nil, err
-	}
-	return m, nil
+	return out, nil
 }
 
 // UserServiceServer is the server API for UserService service.
@@ -117,8 +61,7 @@ type UserServiceServer interface {
 	//verify Code
 	GetVerifyCode(context.Context, *RequestVerifyCode) (*ResponseVerifyCode, error)
 	//User register
-	UserRegister(*RequestUserList, UserService_UserRegisterServer) error
-	UserRegisterServerStream(*RequestUserList, UserService_UserRegisterServerStreamServer) error
+	UserRegister(context.Context, *RequestUser) (*ResponseUser, error)
 	mustEmbedUnimplementedUserServiceServer()
 }
 
@@ -129,11 +72,8 @@ type UnimplementedUserServiceServer struct {
 func (UnimplementedUserServiceServer) GetVerifyCode(context.Context, *RequestVerifyCode) (*ResponseVerifyCode, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetVerifyCode not implemented")
 }
-func (UnimplementedUserServiceServer) UserRegister(*RequestUserList, UserService_UserRegisterServer) error {
-	return status.Errorf(codes.Unimplemented, "method UserRegister not implemented")
-}
-func (UnimplementedUserServiceServer) UserRegisterServerStream(*RequestUserList, UserService_UserRegisterServerStreamServer) error {
-	return status.Errorf(codes.Unimplemented, "method UserRegisterServerStream not implemented")
+func (UnimplementedUserServiceServer) UserRegister(context.Context, *RequestUser) (*ResponseUser, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UserRegister not implemented")
 }
 func (UnimplementedUserServiceServer) mustEmbedUnimplementedUserServiceServer() {}
 
@@ -166,46 +106,22 @@ func _UserService_GetVerifyCode_Handler(srv interface{}, ctx context.Context, de
 	return interceptor(ctx, in, info, handler)
 }
 
-func _UserService_UserRegister_Handler(srv interface{}, stream grpc.ServerStream) error {
-	m := new(RequestUserList)
-	if err := stream.RecvMsg(m); err != nil {
-		return err
+func _UserService_UserRegister_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RequestUser)
+	if err := dec(in); err != nil {
+		return nil, err
 	}
-	return srv.(UserServiceServer).UserRegister(m, &userServiceUserRegisterServer{stream})
-}
-
-type UserService_UserRegisterServer interface {
-	Send(*ResponseUserList) error
-	grpc.ServerStream
-}
-
-type userServiceUserRegisterServer struct {
-	grpc.ServerStream
-}
-
-func (x *userServiceUserRegisterServer) Send(m *ResponseUserList) error {
-	return x.ServerStream.SendMsg(m)
-}
-
-func _UserService_UserRegisterServerStream_Handler(srv interface{}, stream grpc.ServerStream) error {
-	m := new(RequestUserList)
-	if err := stream.RecvMsg(m); err != nil {
-		return err
+	if interceptor == nil {
+		return srv.(UserServiceServer).UserRegister(ctx, in)
 	}
-	return srv.(UserServiceServer).UserRegisterServerStream(m, &userServiceUserRegisterServerStreamServer{stream})
-}
-
-type UserService_UserRegisterServerStreamServer interface {
-	Send(*ResponseUserList) error
-	grpc.ServerStream
-}
-
-type userServiceUserRegisterServerStreamServer struct {
-	grpc.ServerStream
-}
-
-func (x *userServiceUserRegisterServerStreamServer) Send(m *ResponseUserList) error {
-	return x.ServerStream.SendMsg(m)
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/pb.UserService/UserRegister",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UserServiceServer).UserRegister(ctx, req.(*RequestUser))
+	}
+	return interceptor(ctx, in, info, handler)
 }
 
 // UserService_ServiceDesc is the grpc.ServiceDesc for UserService service.
@@ -219,18 +135,11 @@ var UserService_ServiceDesc = grpc.ServiceDesc{
 			MethodName: "GetVerifyCode",
 			Handler:    _UserService_GetVerifyCode_Handler,
 		},
-	},
-	Streams: []grpc.StreamDesc{
 		{
-			StreamName:    "UserRegister",
-			Handler:       _UserService_UserRegister_Handler,
-			ServerStreams: true,
-		},
-		{
-			StreamName:    "UserRegisterServerStream",
-			Handler:       _UserService_UserRegisterServerStream_Handler,
-			ServerStreams: true,
+			MethodName: "UserRegister",
+			Handler:    _UserService_UserRegister_Handler,
 		},
 	},
+	Streams:  []grpc.StreamDesc{},
 	Metadata: "user_service.proto",
 }

@@ -29,11 +29,11 @@ service UserService {
     // };
     
     //User register
-    rpc UserRegister(RequestUserList) returns (stream ResponseUserList) {
+    rpc UserRegister(RequestUser) returns (ResponseUser) {
         option (google.api.http) = {
             post: "/v1/user_register"
             body: "*"
         };
     };
-    rpc UserRegisterServerStream(RequestUserList) returns (stream ResponseUserList){};
+    // rpc UserRegisterServerStream(RequestUserList) returns (stream ResponseUserList){};
 }

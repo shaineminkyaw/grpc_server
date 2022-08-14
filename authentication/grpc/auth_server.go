@@ -63,7 +63,7 @@ func RunGrpcServer() {
 		grpc.Creds(tlsCredentials),
 	)
 
-	pb.RegisterUserServiceServer(grpcServer, sourceServer)
+	pb.RegisterUserServiceServer(grpcServer, sourceServer.UnimplementedUserServiceServer)
 	reflection.Register(grpcServer)
 
 	listener, err := net.Listen("tcp", config.GRPC.AuthGrpc)
@@ -88,7 +88,7 @@ func RunGatewayServer() {
 	grpcMux := runtime.NewServeMux()
 	ctx, cancel := context.WithCancel(context.Background())
 	defer cancel()
-	err = pb.RegisterUserServiceHandlerServer(ctx, grpcMux, sourceServer)
+	err = pb.RegisterUserServiceHandlerServer(ctx, grpcMux, sourceServer.UnimplementedUserServiceServer)
 	if err != nil {
 		log.Fatalf("cannot register handler server %v", err)
 	}
