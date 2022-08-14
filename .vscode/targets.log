@@ -1,6 +1,4 @@
 make all --print-data-base --no-builtin-variables --no-builtin-rules --question
-make: *** No rule to make target 'all'.  Stop.
-
 # GNU Make 4.3
 # Built for x86_64-pc-linux-gnu
 # Copyright (C) 1988-2020 Free Software Foundation, Inc.
@@ -8,7 +6,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Fri Aug 12 20:09:14 2022
+# Make data base, printed on Sun Aug 14 13:25:51 2022
 
 # Variables
 
@@ -69,13 +67,13 @@ VSCODE_CODE_CACHE_PATH = /home/shaine/.config/Code/CachedData/6d9b74a70ca9c7733b
 # environment
 LANG = C
 # environment
-XAUTHORITY = /run/user/1000/.mutter-Xwaylandauth.3HWJQ1
+XAUTHORITY = /run/user/1000/.mutter-Xwaylandauth.585PQ1
 # default
 .LOADED := 
 # default
 .INCLUDE_DIRS = /usr/local/include /usr/include /usr/include
 # environment
-GNOME_TERMINAL_SERVICE = :1.150
+GNOME_TERMINAL_SERVICE = :1.104
 # makefile
 MAKEFLAGS = pqrR
 # makefile
@@ -107,7 +105,7 @@ SNAP_REEXEC =
 # automatic
 @F = $(notdir $@)
 # environment
-VSCODE_PID = 28652
+VSCODE_PID = 3874
 # environment
 XDG_SESSION_TYPE = wayland
 # automatic
@@ -115,7 +113,7 @@ XDG_SESSION_TYPE = wayland
 # environment
 HTTPS_PROXY = http://192.168.10.199:7890/
 # environment
-SESSION_MANAGER = local/shaine-pc:@/tmp/.ICE-unix/2379,unix/shaine-pc:/tmp/.ICE-unix/2379
+SESSION_MANAGER = local/shaine-pc:@/tmp/.ICE-unix/1791,unix/shaine-pc:/tmp/.ICE-unix/1791
 # automatic
 *F = $(notdir $*)
 # environment
@@ -143,7 +141,7 @@ XMODIFIERS = @im=ibus
 # environment
 SHLVL = 1
 # environment
-GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/40237fa9_c95d_4cb1_9c78_f20e42a8e80a
+GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/dd757096_0713_4806_abcf_cad9263997f1
 # environment
 MAKELEVEL := 0
 # default
@@ -199,7 +197,7 @@ SNAP_ARCH = amd64
 # makefile
 .DEFAULT_GOAL := proto
 # environment
-SYSTEMD_EXEC_PID = 8528
+SYSTEMD_EXEC_PID = 2038
 # environment
 DISPLAY = :0
 # environment
@@ -285,8 +283,10 @@ LC_IDENTIFICATION = my_MM
 # environment
 SNAP_LIBRARY_PATH = /var/lib/snapd/lib/gl:/var/lib/snapd/lib/gl32:/var/lib/snapd/void
 # variable set hash-table stats:
- 
 # Load=136/1024=13%, Rehash=0, Collisions=11/166=7%
+
+ 
+make: *** No rule to make target 'all'.  Stop.
 
 # Pattern-specific Variable Values
 
@@ -294,7 +294,7 @@ SNAP_LIBRARY_PATH = /var/lib/snapd/lib/gl:/var/lib/snapd/lib/gl32:/var/lib/snapd
 
 # Directories
 
-# . (device 2050, inode 6029314): 12 files, no impossibilities.
+# . (device 2050, inode 3151238): 12 files, no impossibilities.
 
 # 12 files, no impossibilities in 1 directories.
 
@@ -327,7 +327,7 @@ cert:
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-08-12 20:08:50.661780263
+#  Last modified 2022-08-14 13:25:33.534515078
 #  File has been updated.
 #  Successfully updated.
 
@@ -379,6 +379,6 @@ all:
 # strcache performance: lookups = 35 / hit rate = 40%
 # hash-table stats:
 # Load=21/8192=0%, Rehash=0, Collisions=0/35=0%
-# Finished Make data base on Fri Aug 12 20:09:14 2022
+# Finished Make data base on Sun Aug 14 13:25:51 2022
 
  

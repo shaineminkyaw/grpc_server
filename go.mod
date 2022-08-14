@@ -5,12 +5,12 @@ go 1.17
 require (
 	// github.com/shaineminkyaw/grpc_server/pb v0.0.0-20220812113927-97e65d6e83de
 	github.com/dgrijalva/jwt-go v3.2.0+incompatible
-	github.com/golang/protobuf v1.5.2
+	github.com/golang/protobuf v1.5.2 // indirect
 	github.com/google/uuid v1.3.0
 	github.com/grpc-ecosystem/grpc-gateway/v2 v2.11.2
 	github.com/mazen160/go-random v0.0.0-20210308102632-d2b501c85c03
 	golang.org/x/crypto v0.0.0-20220722155217-630584e8d5aa
-	google.golang.org/genproto v0.0.0-20220810155839-1856144b1d9c
+	google.golang.org/genproto v0.0.0-20220810155839-1856144b1d9c // indirect
 	google.golang.org/grpc v1.48.0
 	google.golang.org/grpc/cmd/protoc-gen-go-grpc v1.2.0
 	google.golang.org/protobuf v1.28.1
@@ -18,6 +18,8 @@ require (
 	gorm.io/driver/mysql v1.3.5
 	gorm.io/gorm v1.23.8
 )
+
+require github.com/shaineminkyaw/grpc_server/pb v0.0.0-20220812142154-5c79a8268db0
 
 require (
 	github.com/go-sql-driver/mysql v1.6.0 // indirect
