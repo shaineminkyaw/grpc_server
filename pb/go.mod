@@ -3,10 +3,9 @@ module github.com/shaineminkyaw/grpc_server/pb
 go 1.17
 
 require (
-    github.com/shaineminkyaw/grpc_server/pb v0.0.0-20220812135408-f6eee7397e7d
 	github.com/golang/protobuf v1.5.2
 	github.com/grpc-ecosystem/grpc-gateway/v2 v2.11.2
-	google.golang.org/genproto v0.0.0-20220810155839-1856144b1d9c
+	google.golang.org/genproto v0.0.0-20220812140447-cec7f5303424
 	google.golang.org/grpc v1.48.0
 	google.golang.org/protobuf v1.28.1
 )

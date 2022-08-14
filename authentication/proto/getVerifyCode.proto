@@ -4,7 +4,7 @@ syntax = "proto3";
 package pb;
 
 
-option go_package = "grpc_basic/pb";
+option go_package = "grpc_server/pb";
 
 
 message RequestVerifyCode {

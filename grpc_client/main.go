@@ -62,6 +62,19 @@ func main() {
 
 }
 
+func GetCode(registerClient pb.UserServiceClient) {
+	//
+	// code := &pb.RequestVerifyCode{
+	// Email: "smk1@gmail.com",
+	// }
+
+}
+
+func CreateUser(registerClient pb.UserServiceClient) {
+	//
+
+}
+
 func ServerStream(registerClient pb.UserServiceClient) {
 	//
 	var opts grpc.CallOption

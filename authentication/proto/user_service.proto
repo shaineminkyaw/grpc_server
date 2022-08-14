@@ -9,7 +9,7 @@ import "getVerifyCode.proto";
 import "rpc_user_register.proto";
 
 
-option go_package = "grpc_basic/pb";
+option go_package = "github.com/shaineminkyaw/grpc_server/pb";
 
 
 

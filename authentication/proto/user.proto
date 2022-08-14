@@ -5,7 +5,7 @@ import "google/protobuf/timestamp.proto";
 
 package pb;
 
-option go_package = "grpc_basic/pb";
+option go_package = "github.com/shaineminkyaw/grpc_server/pb";
 
 
 message User {
