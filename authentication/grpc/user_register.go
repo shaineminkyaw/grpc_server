@@ -153,9 +153,10 @@ func (server *AuthServer) UserRegister(req *pb.RequestUserList, stream pb.UserSe
 			User:      convert(user),
 			CreatedAt: timestamppb.New(user.CreatedAt),
 		})
-		stream.Send(&pb.ResponseUserList{
-			ResponseData: respUser,
-		})
+
 	}
+	stream.Send(&pb.ResponseUserList{
+		ResponseData: respUser,
+	})
 	return nil
 }
